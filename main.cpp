@@ -52,67 +52,12 @@ Implemente uma função para inserir em ordem crescente.
 
 Faça uma função que busque um valor na lista e diga em qual posição está.
 
+
+NAO ESQUECER: ctrl + shift + b para compilar tudo
 */
 #include <iostream>
 #include <string>
-
-#define MAX 10
-//Lista Linear para a primeira atividade
-struct LISTA001{
-    int A[MAX]; //atributo, variável onde fica os dados
-    int NElem = 0; //atributo, quantidade de elementos (funciona para validade)
-
-    //Método para inserir valores ERRO: false
-    bool InserirValor(int l){
-        if(NElem < MAX){
-            A[NElem] = l;
-            NElem++;
-            return true;
-        }
-        return false;
-    }
-    //Método para mostar valores da lista
-    void MostrarValores(){
-        if(NElem == 0){
-            std::cout << "Não há valores.\n";
-        }
-        std::cout << "Valores: {\n";
-        for(int i = 0; i < NElem-1; i++){
-            std::cout << A[i] << "\n";
-        }
-        std::cout << "}\n";
-    }
-    //Método para reover um valor de posição x ERRO: false
-    bool RemoverValor(int x){
-        int i = BuscaOrdernada(x);
-        if(i != -1){
-            for(; i < NElem; i++){
-                A[i] = A[i+1];
-            }
-            NElem--;
-            return true;
-        }
-        return false;
-    }
-    //Busca Ordenada de um elemento x ERRO> -1
-    int BuscaOrdernada(int x){
-        for(int i = 0; i < NElem; i++){
-            if(A[i] == x) return i;
-        }
-        return -1;
-    }
-    //Retorna o maior valor da lista ERRO: -1
-    int MaiorValor(){
-        int x = A[0];
-        if(NElem != 0){
-        for(int i=0; i < NElem-1; i++){
-            if(A[i] > x) x = A[i];
-        }
-        return x;
-    }
-        return -1;
-    }
-};
+#include "ListaLinear01.h"
 
 int main(){
     std::cout << "Escolha uma atividade\n"
@@ -123,7 +68,7 @@ int main(){
     int opc; std::cin >> opc;
     switch (opc){
     case 1:{
-        LISTA001 l;
+        ListaLinear01 l;
         while(true){
             std::cout << "Lista de 10 números inteiros\n"
             << "[1] - Inserir valor;\n"
