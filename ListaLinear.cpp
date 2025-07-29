@@ -1,8 +1,8 @@
 #include <iostream>
-#include "ListaLinear01.h"
+#include "ListaLinear.h"
 
 //Método para inserir valores ERRO: false
-bool ListaLinear01::InserirValor(int l){
+bool ListaLinear::InserirValor(int l){
     if(NElem < MAX){
         A[NElem] = l;
         NElem++;
@@ -11,7 +11,7 @@ bool ListaLinear01::InserirValor(int l){
     return false;
 }
 //Método para mostar valores da lista
-void ListaLinear01::MostrarValores(){
+void ListaLinear::MostrarValores(){
     if(NElem == 0){
         std::cout << "Não há valores.\n";
     }
@@ -22,7 +22,7 @@ void ListaLinear01::MostrarValores(){
     std::cout << "}\n";
 }
 //Método para reover um valor de posição x ERRO: false
-bool ListaLinear01::RemoverValor(int x){
+bool ListaLinear::RemoverValor(int x){
     int i = BuscaOrdernada(x);
     if(i != -1){
         for(; i < NElem; i++){
@@ -34,14 +34,14 @@ bool ListaLinear01::RemoverValor(int x){
     return false;
 }
 //Busca Ordenada de um elemento x ERRO> -1
-int ListaLinear01::BuscaOrdernada(int x){
+int ListaLinear::BuscaOrdernada(int x){
     for(int i = 0; i < NElem; i++){
         if(A[i] == x) return i;
     }
     return -1;
 }
 //Retorna o maior valor da lista ERRO: -1
-int ListaLinear01::MaiorValor(){
+int ListaLinear::MaiorValor(){
     int x = A[0];
     if(NElem != 0){
     for(int i=0; i < NElem-1; i++){

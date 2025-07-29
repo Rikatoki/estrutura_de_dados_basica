@@ -1,14 +1,13 @@
-#ifndef LISTALINEAR01_H
-#define LISTALINEAR01_H
+#ifndef LISTALINEAR_H
+#define LISTALINEAR_H
 
 #include <iostream>
-#include <string>
-#define MAX 10
 
-//Lista Linear da primeira atividade
-struct ListaLinear01{
-    int A[MAX]; //atributo, variável onde fica os dados
-    int NElem = 0; //atributo, quantidade de elementos (funciona para validade)
+#define MAX 10
+//Lista Linear, não a mais eficiente, mas uma que ensina bem
+struct ListaLinear{
+    int A[MAX];
+    int NElem = 0;
 
     //Método para inserir valores |ERRO: false
     bool InserirValor(int l);
