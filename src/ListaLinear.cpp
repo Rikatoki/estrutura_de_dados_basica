@@ -1,5 +1,5 @@
-#include <iostream>
 #include "ListaLinear.h"
+#include <iostream>
 
 //Método para inserir valores ERRO: false
 bool ListaLinear::InserirValor(int l){

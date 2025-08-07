@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include "ListaLinear.h"
-#include "ListaOrdenada.h"
+#include "include/ListaLinear.h"
+#include "include/ListaOrdenada.h"
 
 int main(){
     std::cout << "Escolha uma atividade\n"

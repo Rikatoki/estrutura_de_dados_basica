@@ -7,9 +7,11 @@
       "command": "g++",
       "args": [
         "-std=c++17",
+        "-Iinclude",
         "main.cpp",
-        "ListaLinear.cpp",
-        "ListaOrdenada.cpp",
+        "src/ListaLinear.cpp",
+        "src/ListaOrdenada.cpp",
+        "src/ListaLigada.cpp",
         "-o",
         "programa.exe"
       ],
