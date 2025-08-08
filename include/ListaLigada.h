@@ -20,13 +20,13 @@ struct ListaLigada{
     int dispo;
     //Inicialização
     ListaLigada();
-    //Pega o tamanho para fazer loops baseado nele
+    //Retorna a quantidade de itens na lista
     int tamanho();
-    //Mostra a chave de cada valor registrado
+    //Mostra a chave de cada registro
     void exibirLista();
     //A busca sequencial ordenada é mais eficiente que a tradicional
     int buscaSeqOrd(int ch);
-    //Retorna o index do disponível e muda o dispo pro próximo dispónivel
+    //Retorna o index do disponível e atualiza o dispo pro próximo dispónivel
     int obterNo();
     //Insere um elemento na lista, ordenado
     bool appendElemOrd(REGISTRO reg);
