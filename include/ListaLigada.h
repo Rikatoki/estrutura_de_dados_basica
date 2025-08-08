@@ -3,38 +3,39 @@
 
 #define MAX 50
 #define INVALIDO -1
-//Dados a serem guardados
+
 struct REGISTRO{
+    //Identificador
     int chave;
-    //Em construção...
+
+    std::string nome;
+    int idade;
+    //Outros dados...
 };
-//O dado + ponteiro
+
 struct ELEMENTO{
     REGISTRO reg;
     int prox;
 };
-//Estrutura da lista em si
+
 struct ListaLigada{
     ELEMENTO A[MAX];
     int inicio;
     int dispo;
     //Inicialização
     ListaLigada();
-    //Retorna a quantidade de itens na lista
-    int tamanho();
-    //Mostra a chave de cada registro
-    void exibirLista();
-    //A busca sequencial ordenada é mais eficiente que a tradicional
-    int buscaSeqOrd(int ch);
-    //Retorna o index do disponível e atualiza o dispo pro próximo dispónivel
+    //Pega o índice do dispónivel
     int obterNo();
-    //Insere um elemento na lista, ordenado
-    bool appendElemOrd(REGISTRO reg);
-    //Excluir o elemento da lista
-    bool excluirElem(int ch);
-    //O elemento se torna o próximo idx e ele é ligado ao próximo da idx
-    void devolverNo(int j);
-    //Zera a lista
-    void reiniciarLista();
+    //Devolve tal valor para a lista de disponíveis
+    void devolverNo(int i);
+    //Exibir todos os elementos da lista
+    void exibir();
+    //insere tal valor ao início da lista | inserir_inicio <-> busca <-> remover 
+    bool inserir_inicio(REGISTRO reg);
+    //Busca um elemento interando por todos sequencialmente |  busca <-> inserir_inicio <-> remover
+    int busca(int ch);
+    //Remover um elemento | remover <-> inserir_inicio <-> busca 
+    bool remover(int ch);
 };
+
 #endif
