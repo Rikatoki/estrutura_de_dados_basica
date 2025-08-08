@@ -9,7 +9,6 @@ ListaLigada::ListaLigada(){
     }
     A[MAX-1].prox = INVALIDO;
 }
-
 int ListaLigada::obterNo(){
     int no = dispo;
     if(dispo != INVALIDO) dispo = A[dispo].prox;
@@ -25,6 +24,7 @@ void ListaLigada::exibir(){
         std::cout << "[ " << A[i].reg.chave << " | " << A[i].reg.nome << " ]\n";
     }
 }
+
 //lista desordenada
 bool ListaLigada::inserir_inicio(REGISTRO reg){
     int i = obterNo();
@@ -54,6 +54,52 @@ bool ListaLigada::remover(int ch){
     if(ant == INVALIDO) inicio = A[inicio].prox;
     else A[ant].prox = A[i].prox;
 
+    devolverNo(i);
+    return true;
+}
+
+//Lista Ordenada
+bool ListaLigada::inserirOrd(REGISTRO reg){
+    int i = inicio;
+    int ant = INVALIDO;
+    while(i !=  INVALIDO && A[i].reg.chave < reg.chave){
+        ant =  i;
+        i = A[i].prox;
+    }
+    if(i != INVALIDO && A[i].reg.chave == reg.chave) return false; //Previnir valores identicos
+    int n = obterNo();
+    if(n == INVALIDO) return false;
+
+    A[n].reg = reg;
+    A[n].prox = i;
+
+    if(ant == INVALIDO) inicio = n; //Primeiro da listainicio 
+    else A[ant].prox = n;
+
+    return true;
+}
+//Lista Ordenada
+int ListaLigada::buscaOrd(int ch){
+    int i = inicio;
+    while(i != INVALIDO && A[i].reg.chave < ch) i = A[i].prox;
+    if(i == INVALIDO || A[i].reg.chave != ch) return INVALIDO;
+    return i;
+}
+//Lista Ordenada
+bool ListaLigada::removerOrd(int ch){
+    if(inicio == INVALIDO) return false;
+    int i = inicio;
+    int ant = INVALIDO;
+    while(i != INVALIDO && A[i].reg.chave < ch){
+        ant = i;
+        i = A[i].prox;
+    }
+    if(i == INVALIDO || A[i].reg.chave != ch) return false;
+    if(ant != INVALIDO){
+        A[ant].prox = A[i].prox;
+    } else{
+        inicio = A[i].prox;
+    }
     devolverNo(i);
     return true;
 }
