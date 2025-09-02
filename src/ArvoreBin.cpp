@@ -42,29 +42,29 @@ PONT ArvBin::search(int ch){
     return node;
 }
 bool ArvBin::removerElem(int ch){
-    PONT parent, node, p, q;
+    PONT node, parent, sub, assis;
     FindParentAndNode(parent, node, ch);
-    if(node == nullptr) return false;
-    if(!node->esq || !node->dir){
-        if(!node->esq) q = node->dir;
-        else q = node->esq;
-    }
+    if(!node) return false;
+
+    assis = nullptr;
+    sub = nullptr;
+    if(node->dir != nullptr){
+        sub = node->dir;
+        while(sub->esq != nullptr){
+            assis = sub;
+            sub = sub->esq;
+        }
+        if(assis != nullptr){
+            assis->esq = sub->dir;
+            sub->dir = node->dir;
+        }
+        sub->esq = node->esq;
+    } else if(node->esq != nullptr) sub = node->esq;
+    if(!parent) raiz = sub;
     else{
-        p = node;
-        q = node->esq;
-        while(q->dir){
-            p = q;
-            q = q->dir;
-        }
-        if(p != node){
-            p->dir = q->esq;
-            q->esq = node->esq;
-        }
-        q->dir = node->dir;
+        if(node->chave < parent->chave) parent->esq = sub;
+        else parent->dir = sub;
     }
-    if(parent == nullptr) raiz = q;
-    else if(ch < parent->chave) parent->esq = q;
-    else parent->dir = q;
     delete node;
     return true;
 }
