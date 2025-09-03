@@ -37,6 +37,23 @@ estrutura_de_dados_basica/
   - Exclusão de elementos
   - Exibição da lista
   - Busca sequencial ordenada
+    
+- **Lista Ligada Dinâmica de Tarefas**
+  - Inserção ordenada por chave
+  - Inserção no final da lista
+  - Mesclagem de listas preservando a ordem
+  - Reinicialização (remoção total)
+  - Remoção e busca por chave
+  - Controle automático de duplicidades
+
+- **Matriz Esparsa**
+  - Inserção de valores
+  - Impressão, transposição, soma e multiplicação de matrizes
+
+- **Árvore Binária de Busca**
+  - Inserção, busca, remoção
+  - Impressão recursiva dos elementos
+  - Contagem e deleção de nós
 
 ## Como Compilar e Executar
 
